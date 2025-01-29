@@ -1,42 +1,31 @@
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
 }
 
-header {
+
+nav {
     background-color: #548B54;
     width: 100%;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-header img{
+nav img{
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-left: 1%
-}
-
-nav {
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-right: 1%;
 }
 
 nav a {
@@ -49,17 +38,24 @@ nav a {
 
 nav a:hover {
     color: black;
+    text-decoration: underline;
+}
+.nav-opt{
+    margin-right: 2%;
 }
 .nav-list label{
-    margin-left: 3%;
     font-size: 1rem;
+    color: white;
+    margin-left: 2%;
 }
 .nav-list{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 20%;
-    margin-left: 1%;
+}
+.nav-list span{
+    color: black;
 }
 
 main {
@@ -70,6 +66,55 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.intro-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.intro-div img{
+    width: 50%;
+    height: 50%;
+}
+
+.intro-div p{
+    color: #548B54; /* Purple */
+    text-align: center;
+}
+.intro-div h2 {
+	-webkit-animation: pulsate-fwd 1.9s ease-in-out infinite both;
+	        animation: pulsate-fwd 1.9s ease-in-out infinite both;
+}
+
+ @-webkit-keyframes pulsate-fwd {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes pulsate-fwd {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
 
 h2 {
     color: #548B54; /* Purple */
@@ -159,7 +204,7 @@ table tr:hover {
 }
 
 .btn-delete {
-    background-color: #f44336; /* Red */
+    background-color: #548B54; /* Red */
     color: white;
 }
 

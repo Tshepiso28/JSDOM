@@ -42,6 +42,19 @@ def view_employees():
     conn.close()
     return render_template('view_employees.html', employees=employees)
 
+# Delete Employee Route
+@app.route('/delete/<int:id>')
+def delete_employee(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('DELETE FROM employees WHERE id = %s', (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    return redirect(url_for('view_employees'))
+
+
 # Run the App
 if __name__ == '__main__':
     app.run(debug=True)
