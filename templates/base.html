@@ -8,11 +8,14 @@
 </head>
 <body>
     <header>
-        <h1>Employee Management System</h1>
+            <div class="nav-list">
+            <img src="https://i.pinimg.com/736x/4b/f4/22/4bf422a3d7b47265fee47d74fd3ed55d.jpg" alt="logo">
+            <label for="">Employee Management</label>
+            </div>
         <nav>
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('add_employee') }}">Add Employee</a>
-            <a href="{{ url_for('view_employees') }}">View Employees</a>
+            <a href="{{ url_for('view_employees') }}">View Employees</a> 
         </nav>
     </header>
     <main>

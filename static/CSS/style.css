@@ -8,45 +8,71 @@ body {
 }
 
 header {
-    background-color: #6200ea; /* Purple */
+    background-color: #548B54;
+    width: 100%;
     color: white;
     padding: 1rem 0;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
     font-size: 2.5rem;
 }
+header img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 1%
+}
 
 nav {
     margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 1%;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     margin: 0 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #ffd600; /* Yellow */
+    color: black;
+}
+.nav-list label{
+    margin-left: 3%;
+    font-size: 1rem;
+}
+.nav-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin-left: 1%;
 }
 
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
+    width: 80%;
+    margin: 50px auto;
+    padding: 2rem;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #6200ea; /* Purple */
+    color: #548B54; /* Purple */
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -60,7 +86,7 @@ form {
 
 form label {
     font-weight: bold;
-    color: #6200ea; /* Purple */
+    color: #548B54; /* Purple */
 }
 
 form input {
@@ -72,7 +98,7 @@ form input {
 
 form button {
     padding: 0.75rem;
-    background-color: #6200ea; /* Purple */
+    background-color: #548B54; /* Purple */
     color: white;
     border: none;
     border-radius: 4px;
@@ -82,13 +108,17 @@ form button {
 }
 
 form button:hover {
-    background-color: #3700b3; /* Darker Purple */
+    background-color: #548B54; /* Darker Purple */
 }
 
 /* Table Styles */
+.table-div {
+    overflow-x: auto;
+}
 table {
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
     margin-top: 1rem;
 }
 
@@ -99,7 +129,7 @@ table th, table td {
 }
 
 table th {
-    background-color: #6200ea; /* Purple */
+    background-color: #548B54;
     color: white;
 }
 
