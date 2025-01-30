@@ -3,12 +3,11 @@ from database import get_db_connection
 
 app = Flask(__name__)
 
-# Home Route
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# Add Employee Route
 @app.route('/add', methods=['GET', 'POST'])
 def add_employee():
     if request.method == 'POST':
@@ -31,7 +30,6 @@ def add_employee():
         return redirect(url_for('view_employees'))
     return render_template('add_employee.html')
 
-# View Employees Route
 @app.route('/view')
 def view_employees():
     conn = get_db_connection()
@@ -42,12 +40,25 @@ def view_employees():
     conn.close()
     return render_template('view_employees.html', employees=employees)
 
-# Delete Employee Route
 @app.route('/delete/<int:id>')
 def delete_employee(id):
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute('DELETE FROM employees WHERE id = %s', (id,))
+    conn.commit()
+    cur.execute('SELECT COUNT(*) FROM employees')
+    count = cur.fetchone()[0]
+    
+    if count == 0:  
+        cur.execute('ALTER SEQUENCE employees_id_seq RESTART WITH 1')
+        conn.commit()
+    cur.execute("UPDATE employees SET id = id - 1 WHERE id > %s", (id,))
+    conn.commit()
+
+    cur.execute("SELECT MAX(id) FROM employees")
+    max_id = cur.fetchone()[0] or 0  
+
+    cur.execute("ALTER SEQUENCE employees_id_seq RESTART WITH %s", (max_id + 1,))
     conn.commit()
     cur.close()
     conn.close()
@@ -55,6 +66,5 @@ def delete_employee(id):
     return redirect(url_for('view_employees'))
 
 
-# Run the App
 if __name__ == '__main__':
     app.run(debug=True)
